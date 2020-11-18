@@ -1,0 +1,203 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="trangchu.master.cs" Inherits="Doanbaove.trangchu" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Hệ thống quản lý sinh viên</title>
+    <link href="Style/master.css" rel="stylesheet" />
+    <!-- Custom fonts for this template-->
+    <link
+        href="~/Assets/vendor/fontawesome-free/css/all.min.css"
+        rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+    <link href="~/Assets/css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="Assets/w3css-master/w3css-master/w3.css" rel="stylesheet" />
+    <link href="Assets/w3css-master/w3css-master/w3pro.css" rel="stylesheet" />
+
+</head>
+<body>
+    <form id="form1" runat="server" method="post">
+        <div>
+            <div id="wrapper">
+                <!-- Sidebar -->
+                <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion navbar-fixed-top" data-spy="affix" id="accordionSidebar">
+                    <!-- Sidebar - Brand -->
+                    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.aspx?menu=home">
+                        <div class="sidebar-brand-icon rotate-n-15">
+                            <i class="fas fa-laugh-wink"></i>
+                        </div>
+                        <div class="sidebar-brand-text mx-3">Hello</div>
+                        <asp:Label ID="lbl_login" runat="server" Text=""></asp:Label>
+                    </a>
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider my-0" />
+
+                    <!-- Nav Item - Dashboard -->
+
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider" />
+
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        Interface
+                    </div>
+
+
+                    <!-- Nav Item - Pages Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link " href="dssinhvienView.aspx?menu=sv">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Danh sách sinh viên</span>
+                        </a>
+                    </li>
+
+                    <!-- Nav Item - Utilities Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link " href="dsgiangvienView.aspx?menu=gv">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Danh sách giảng viên</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="dslophocView.aspx?menu=gv">
+                            <i class="fas fa-list"></i>
+                            <span>Danh sách lớp học</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="dsmonhocView.aspx?menu=mh">
+                            <i class="fas fa-book"></i>
+                            <span>Danh sách môn học</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="dsdiem.aspx?menu=diem">
+                            <i class="fas fa-users-cog"></i>
+                            <span>Quản lí điểm</span>
+                        </a>
+                    </li>
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider d-none d-md-block" />
+
+                    <!-- Sidebar Toggler (Sidebar) -->
+                    <div class="text-center d-none d-md-inline">
+                        <asp:Button ID="btn_logout" runat="server" Text="<" ForeColor="White" OnClick="btn_logout_Click" BackColor="#4E73DF"/>                        
+<%--                        <asp:Button ID="sidebarToggle" runat="server" class="rounded-circle border-0" Text="<" PostBackUrl="~/loginView.aspx" ForeColor="White" />--%>
+                    </div>
+                </ul>
+                <!-- End of Sidebar -->
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+                    <!-- Main Content -->
+                    <div id="content">
+
+                        <!-- Topbar -->
+                        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item d-none d-lg-inline text-gray-600">
+                                    <%--    slide chữ--%>
+                                </li>
+                                <li class="nav-item">
+                                    
+                                    <a class="nav-link">
+                                        <%--<asp:Label ID="lbl_hour" runat="server" Text=""></asp:Label>&nbsp;giờ&nbsp;
+                                        <asp:Label ID="lbl_minute" runat="server" Text=""></asp:Label>&nbsp;phút -  ngày&nbsp; --%>
+                                        <asp:Label ID="lbl_time" runat="server" Text="Label"></asp:Label>&nbsp; - ngày&nbsp;
+                                        <asp:Label ID="lbl_day" runat="server" Text=""></asp:Label>&nbsp;tháng&nbsp; 
+                                        <asp:Label ID="lbl_month" runat="server" Text=""></asp:Label>&nbsp;năm&nbsp; 
+                                        <asp:Label ID="lbl_year" runat="server" Text=""></asp:Label>
+                                    </a>
+                                </li>
+                                        <!-- Nav Item - Alerts -->
+                                <div class="topbar-divider d-none d-sm-block"></div>
+                                <!-- Nav Item - User Information -->
+                                <li class="nav-item">
+                                    
+                                    <a class="nav-link " href="#">
+                                        
+                                        <asp:Label ID="lbl_user" class="mr-2 d-none d-lg-inline text-gray-600 small" runat="server" Text=""></asp:Label>
+                                    </a>
+                                    <!-- Dropdown - User Information -->
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- End of Topbar -->
+
+                        <!-- Begin Page Content -->
+
+                        <!-- /.container-fluid -->
+                    </div>
+                    <!-- End of Main Content -->
+                    <div class="w3-main" style="margin-left: 20px; margin-top: 20px; min-height: 700px; padding: 10px;">
+                        <div style="min-height: 500px; padding: 5px; margin-bottom: 100px;">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Nhóm 2- Quản lí sinh viên</span>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End of Footer -->
+                </div>
+                <!-- End of Content Wrapper -->
+            </div>
+            <!-- End of Page Wrapper -->
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+
+
+            <!-- Bootstrap core JavaScript-->
+            <script src="~/Assets/vendor/jquery/jquery.min.js"></script>
+            <script src="~/Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Core plugin JavaScript-->
+            <script src="~/Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+            <!-- Custom scripts for all pages-->
+            <script src="~/Assets/js/sb-admin-2.min.js"></script>
+
+            <!-- Page level plugins -->
+            <script src="~/Assets/vendor/chart.js/Chart.min.js"></script>
+
+            <!-- Page level custom scripts -->
+            <script src="~/Assets/js/demo/chart-area-demo.js"></script>
+            <script src="~/Assets/js/demo/chart-pie-demo.js"></script>
+
+        </div>
+    </form>
+
+</body>
+</html>
